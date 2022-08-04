@@ -63,6 +63,9 @@ $ npm run test:cov
 
 - Website - [https://nestjs.com](https://nestjs.com/)
 
-## License
+## Help
 
-Nest is [MIT licensed](LICENSE).
+> nest --help
+
+### create module through CLI
+> nest g mo users
