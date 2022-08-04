@@ -1,12 +1,15 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
 import { BookService } from "./book.service";
 
 
 
 @Controller('book')
 export class BookController{
-    public bookService: BookService = new BookService();
+
+    constructor(private bookService : BookService){
+
+    }
 
     //add book
     @Post('/add')
@@ -33,12 +36,5 @@ export class BookController{
     findAllsBook() : string{
        return this.bookService.findBook();
 
-    }
-
-    //Create Dynamic Route - https://docs.nestjs.com/controllers
-    @Get('/:id')
-    findBookById(@Param() params): string {
-    console.log(params.id);
-    return `This will find a book of id #${params.id} `;
     }
 }
