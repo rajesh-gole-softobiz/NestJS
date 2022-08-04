@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 
 
 
@@ -28,5 +28,12 @@ export class BookController{
     //find all book
     findAllsBook() : string{
         return "This will find all books"
+    }
+
+    //Create Dynamic Route - https://docs.nestjs.com/controllers
+    @Get('/:id')
+    findBookById(@Param() params): string {
+    console.log(params.id);
+    return `This will find a book of id #${params.id} `;
     }
 }
